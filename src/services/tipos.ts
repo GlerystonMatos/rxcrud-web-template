@@ -44,6 +44,12 @@ export interface Usuario {
     nomeAcesso: string;
 }
 
+export interface Estado {
+    id: string;
+    uf: string;
+    descricao: string;
+}
+
 export interface Perfil {
     id: string;
     nome: string;

@@ -11,6 +11,11 @@ import UsuarioListagem from './view/usuario/listagem';
 import UsuarioCadastro from './view/usuario/cadastro';
 import UsuarioExclusao from './view/usuario/exclusao';
 
+import EstadoListagem from './view/estado/listagem';
+import EstadoCadastro from './view/estado/cadastro';
+import EstadoExclusao from './view/estado/exclusao';
+
+
 function App() {
   return (
     <Provider store={store}>
@@ -29,6 +34,13 @@ function App() {
             <Route path='/usuario/editar/:id' component={UsuarioCadastro} />
             <Route path='/usuario/visualizar/:id/:action' component={UsuarioCadastro} />
             <Route path='/usuario/exclusao/:id' component={UsuarioExclusao} />
+
+            <Route exact path='/estado' component={EstadoListagem} />
+            <Route path='/estado/pagina/:pagina' component={EstadoListagem} />
+            <Route exact path='/estado/novo' component={EstadoCadastro} />
+            <Route path='/estado/editar/:id' component={EstadoCadastro} />
+            <Route path='/estado/visualizar/:id/:action' component={EstadoCadastro} />
+            <Route path='/estado/exclusao/:id' component={EstadoExclusao} />
 
             <Route path='*' component={PageNotFound} />
           </Switch>

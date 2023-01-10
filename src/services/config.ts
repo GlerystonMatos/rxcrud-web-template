@@ -10,7 +10,7 @@ export const SelectLabelAsyncPrimaryColor = '#FDA227';
 export const SelectLabelAsyncDisabledColor = '#CCCCCC';
 export const SelectLabelAsyncSecondaryColor = '#FFFFFF';
 
-export type DataType = 'DadosFixos' | 'Exemplo';
+export type DataType = 'DadosFixos' | 'Exemplo' | 'Estado';
 
 export const RequestTypeArray: RequestType[] = [
     {
@@ -22,6 +22,15 @@ export const RequestTypeArray: RequestType[] = [
         fieldLabelLowerCase: 'fieldLabelLowerCase',
         url: '/OData/Exemplo?$filter=contains(toupper(nome),toupper(\'selectedValue\'))',
     },
+    {
+        type: 'Estado',
+        useOdata: true,
+        fieldValue: 'Id',
+        fieldLabel: 'Nome',
+        fieldValueLowerCase: 'id',
+        fieldLabelLowerCase: 'nome',
+        url: '/OData/Texto?$filter=contains(toupper(nome),toupper(\'selectedValue\'))',
+    },
 ];
 
 /* RxlibLayout */
@@ -31,6 +40,7 @@ export const UsarSidebarLayout = false;
 export const SecretKey = '9dec7339f2de4d61';
 export const UsarSidebarBodyGradient = false;
 export const ExibirNomeEmpresaNavbarLayout = false;
+
 
 export function montarMenus(token: string, administrador: boolean): Menu {
     let menus: Menu = {
@@ -45,6 +55,11 @@ export function montarMenus(token: string, administrador: boolean): Menu {
     item.subItens.push({
         nome: 'Usuários',
         link: '/usuario',
+    });
+
+    item.subItens.push({
+        nome: 'Estados',
+        link: '/estado',
     });
 
     menus.items.push(item);
